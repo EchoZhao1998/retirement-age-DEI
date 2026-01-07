@@ -1,0 +1,2 @@
+## Cummins Inc. aligned retirement age for women and men — official company statement on gender equity change in China workplace policy.
+[Report](https://www.cummins.com/news/2022/03/11/cummins-inc-china-area-business-organization-brings-parity-retirement-age-women-and)
