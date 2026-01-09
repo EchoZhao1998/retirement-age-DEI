@@ -37,3 +37,18 @@ Lee, W. K. M. (2005). Gender differences in retirement decision in Hong Kong. Jo
 - Having a working spouse decreased the likelihood of retirement and older workers, in particular older women, living with married children were more likely to retire. 
 - Poor health also discourages the propensity to continue working at old age.
 
+# Before
+held less traditional gender-role attitudes
+and anticipated that their husbands would also remain
+employed past that age.
+Work-related factors
+Research into the interaction of work-related factors and gen-
+der reveals significant gender-specific differences in retirement
+decisions. 
+
+# After
+held less traditional gender-role attitudes and anticipated that their husbands would also remain employed past that age.
+
+Work-related factors
+
+Research into the interaction of work-related factors and gender reveals significant gender-specific differences in retirement decisions.
