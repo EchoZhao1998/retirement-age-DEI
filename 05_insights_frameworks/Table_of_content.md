@@ -1,0 +1,54 @@
+# Retirement Age as a Structural DEI Lever
+
+*Author’s Intent and Analytical Lens*
+
+## Part I — The Rule
+ 1. Retirement Age as an Institutional Constraint
+   - Gender-differentiated retirement policies (China focus)
+   - Historical and administrative logic
+   - Where formal rules meet informal adaptation
+
+⸻
+
+## Part II — The Mechanism
+ 2. Career Horizon Compression
+    - Expected working years by gender
+    - Interaction with caregiving and marital status
+ 3.	Promotion Timing and Leadership Accumulation
+    - Typical promotion cycles
+    - Why leadership returns are back-loaded
+ 4.	Rational Adaptation Under Constraint
+    - Individual responses (“退而不休”)
+    - Organizational exceptions (senior roles, scarce talent)
+
+⸻
+
+## Part III — Stakeholder Consequences
+  5. Individuals: Human Capital and Silent Trade-offs
+    - Education gradients
+    - Pension and income implications
+  6. Enterprises: Talent ROI and Succession Risk
+    - Leadership pipeline truncation
+    - Investment amortization mismatch
+  7.	Government: Policy Leakage and Efficiency Loss
+    - Heterogeneous effects
+    - Selective enforcement and credibility
+
+⸻
+
+## Part IV — Data and Evidence
+  8. What Can Be Shown with Public Data
+    - Labor force participation
+    - Retirement timing
+    - Leadership age distributions
+  9. Scenario Modeling: Making the Mechanism Visible
+    - Assumptions
+    - Limits
+    - Why causality is not the goal
+
+⸻
+
+## Part V — Synthesis and Use
+  10. Why Retirement Age Is Not a Neutral Rule
+  11. How to Use This Lens in Other DEI Contexts
+  12. What This Case Is — and Is Not — Claiming
