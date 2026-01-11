@@ -2,6 +2,8 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 
+ORANGE = "#C97A2B"
+DARK = "#1F2933"
 # -----------------------------
 # Data
 # -----------------------------
@@ -37,8 +39,8 @@ plt.figure(figsize=(18, 6))
 bar_width = 0.5
 
 colors = {
-    "Men": "#C47A00",      # muted amber
-    "Women": "#D14900"    # muted red-orange
+    "Men": DARK,      # muted amber
+    "Women": ORANGE    # muted red-orange
 }
 
 plt.bar(x_men, df["Men"], width=bar_width, color=colors["Men"])
@@ -53,6 +55,10 @@ all_labels = list(countries) + list(countries)
 plt.xticks(all_x, all_labels, rotation=45, ha="right")
 plt.ylabel("Statutory Retirement Age")
 plt.ylim(50, 75)
+plt.grid(alpha=0.3, axis="y")
+
+# Reference line at 70 years
+# plt.axhline(y=70, linestyle="--", linewidth=1, alpha=0.6)
 
 # -----------------------------
 # Section titles

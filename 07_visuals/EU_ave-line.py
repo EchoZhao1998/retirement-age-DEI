@@ -1,6 +1,9 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
+ORANGE = "#C97A2B"
+DARK = "#1F2933"
+
 # Create the dataframe directly
 data = [
     ["EU Average", 2015, "Male", 37.84],
@@ -33,8 +36,8 @@ female_df = df[df["Gender"] == "Female"]
 
 plt.figure(figsize=(10, 6))
 
-plt.plot(male_df["Year"], male_df["Duration"], marker="o", label="Male")
-plt.plot(female_df["Year"], female_df["Duration"], marker="o", label="Female")
+plt.plot(male_df["Year"], male_df["Duration"], marker="o", color=DARK, label="Male")
+plt.plot(female_df["Year"], female_df["Duration"], marker="o", color=ORANGE, label="Female")
 
 # Reference line at 40 years
 plt.axhline(y=40, linestyle="--", linewidth=1, alpha=0.6)

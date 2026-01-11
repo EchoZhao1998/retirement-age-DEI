@@ -1,6 +1,9 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
+ORANGE = "#C97A2B"
+DARK = "#1F2933"
+
 data = [
     ["Germany", 2015, "Male", 40.0], ["Germany", 2016, "Male", 40.2],
     ["Germany", 2017, "Male", 40.4], ["Germany", 2018, "Male", 40.7],
@@ -48,7 +51,7 @@ for i, country in enumerate(countries, 1):
 
     for gender in ["Male", "Female"]:
         gdata = subset[subset["Gender"] == gender]
-        plt.plot(gdata["Year"], gdata["Duration"], marker="o", label=gender)
+        plt.plot(gdata["Year"], gdata["Duration"], marker="o", color=DARK if gender == "Male" else ORANGE, label=gender)
 
     plt.axhline(40, linestyle="--", linewidth=1, alpha=0.5)
     plt.title(country)
