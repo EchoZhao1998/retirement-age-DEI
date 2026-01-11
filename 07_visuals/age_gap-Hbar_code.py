@@ -60,12 +60,12 @@ for country, gap in zip(df["Country"], df["Gap"]):
     elif gap == 0:
         colors.append("#D0D3D4")   # same-age regimes
     else:
-        colors.append("#2C3E50")   # differentiated regimes
+        colors.append("#1F2933")   # differentiated regimes
 
 # -----------------------------
 # 4. Plot
 # -----------------------------
-fig, ax = plt.subplots(figsize=(8, 12))
+ffig, ax = plt.subplots(figsize=(8, 12))
 
 ax.barh(
     df["Country"],
@@ -80,17 +80,27 @@ ax.set_title(
     pad=12
 )
 
-# -----------------------------
-# 5. Annotate China
-# -----------------------------
+# X-axis grid for year scale
+ax.xaxis.grid(
+    True,
+    linestyle="--",
+    linewidth=0.8,
+    alpha=0.4
+)
+ax.set_axisbelow(True)
+
+# Annotate China (raised position)
 china_row = df[df["Country"] == "China"]
+china_y = china_row.index[0]
+
 ax.text(
     china_row["Gap"].values[0] + 0.1,
-    china_row.index[0],
+    china_y - 0.1,
     "China (8 years)",
-    va="center",
     fontsize=10,
-    color="#E74C3C"
+    color="#C97A2B",
+    ha="left",
+    va="center"
 )
 
 plt.tight_layout()
