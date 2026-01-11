@@ -1,6 +1,5 @@
 import pandas as pd
 import matplotlib.pyplot as plt
-import os
 
 # -----------------------------
 # 1. Load or construct the data
@@ -36,67 +35,51 @@ df = pd.DataFrame(
 # -----------------------------
 # 2. Aggregate for pie chart
 # -----------------------------
-summary = df["Same"].value_counts().rename(
-    index={True: "Same retirement age", False: "Different retirement age"}
-)
-sizes = summary.tolist()
-total = sum(sizes)
+summary = df["Same"].value_counts()
+same_count = summary[True]
+diff_count = summary[False]
+total = same_count + diff_count
 
 # Percentages
-percentages = [s / total * 100 for s in sizes]
+same_pct = same_count / total * 100
+diff_pct = diff_count / total * 100
 
-# Colors (aligned with your site theme)
-colors = ["#1F2933", "#E5E7EB"]
+# -----------------------------
+# 3. Plot (clean version)
+# -----------------------------
+fig, ax = plt.subplots(figsize=(8, 8))
 
-# Create figure
-fig, ax = plt.subplots(figsize=(6, 6))
+colors = ["#1F2933", "#E5E7EB"]  # dark primary + neutral contrast
 
-# Nudge the chart slightly to the right to make room for the legend
-# Adjust position: move x0 right and reduce width to keep figure bounds
-shift = 0.06
-pos = ax.get_position()
-new_x0 = pos.x0 + shift
-new_width = max(0.1, pos.width - shift)
-ax.set_position([new_x0, pos.y0, new_width, pos.height])
-
-# Pie chart WITHOUT autopct
 wedges, _ = ax.pie(
-    sizes,
+    [same_count, diff_count],
     colors=colors,
     startangle=90,
     wedgeprops=dict(edgecolor="white", linewidth=1)
 )
 
 ax.set_title(
-    "Distribution of Statutory Retirement Age Policies by Gender",
+    "Global Distribution of Gender-Differentiated Retirement Age Policies",
     fontsize=24,
-    pad=14
+    pad=14,
+    fontweight="bold"
 )
 
-# Custom legend text (with % and counts)
+# Custom legend with figures UNDER labels
 legend_labels = [
-    f"Same retirement age\n\n{percentages[0]:.1f}% ({sizes[0]} countries)",
-    f"Different retirement age\n\n{percentages[1]:.1f}% ({sizes[1]} countries)"
+    f"Same retirement age\n{same_pct:.1f}% ({same_count} countries)",
+    f"Different retirement age\n{diff_pct:.1f}% ({diff_count} countries)"
 ]
 
 ax.legend(
     wedges,
     legend_labels,
     loc="center left",
-    bbox_to_anchor=(1, 0.5),
+    bbox_to_anchor=(2.0, 1.0),
     frameon=False,
-    fontsize=16,
-    labelspacing=1.4,
-    handletextpad=1.2
+    fontsize=14
 )
 
 ax.set_aspect("equal")
 plt.tight_layout()
-
-# In headless environments `plt.show()` may not open a window.
-# Save the figure next to this script so users can open it manually.
-out_path = os.path.join(os.path.dirname(__file__), "retirement_age_overview-pie.png")
-plt.savefig(out_path, dpi=150, bbox_inches="tight")
-print(f"Saved figure to {out_path}")
-
 plt.show()
