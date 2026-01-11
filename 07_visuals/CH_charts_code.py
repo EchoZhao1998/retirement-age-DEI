@@ -44,11 +44,11 @@ ax2 = ax1.twinx()
 # Left axis: total employment
 ax1.plot(df["Year"], df["Total"], marker="o", color=DARK, label="Total employment")
 ax1.set_xlabel("Year")
-ax1.set_ylabel("Employed persons (10,000)")
+ax1.set_ylabel("Employed persons (10,000)", color=DARK)
 
 # Right axis: female participation rate
 ax2.plot(df["Year"], df["Female_LFPR"], linestyle="--", marker="s", color=ORANGE, label="Female LFPR (%)")
-ax2.set_ylabel("Female labor force participation rate (%)")
+ax2.set_ylabel("Female labor force participation rate (%)", color=ORANGE)
 
 # Titles and grid
 plt.title("China: Employment Decline vs Female Participation Trend")
@@ -57,7 +57,7 @@ ax1.grid(alpha=0.3)
 # Combine legends
 lines1, labels1 = ax1.get_legend_handles_labels()
 lines2, labels2 = ax2.get_legend_handles_labels()
-ax1.legend(lines1 + lines2, labels1 + labels2, loc="upper right")
+ax1.legend(lines1 + lines2, labels1 + labels2, loc="upper center")
 
 plt.tight_layout()
 plt.show()
