@@ -10,7 +10,7 @@ DARK = "#1F2933"
 data = {
     "Country": [
         "United States", "Canada", "United Kingdom", "Australia", 
-        "Finland", "France", "Italy",
+        "Finland", "Germany", "Italy",
         "Japan", "South Korea", "Hong Kong",
         "China", "Thailand", "Brazil"
     ],
@@ -39,8 +39,8 @@ plt.figure(figsize=(18, 6))
 bar_width = 0.5
 
 colors = {
-    "Men": DARK,      # muted amber
-    "Women": ORANGE    # muted red-orange
+    "Men": DARK,      
+    "Women": ORANGE    
 }
 
 plt.bar(x_men, df["Men"], width=bar_width, color=colors["Men"])
