@@ -2,7 +2,14 @@ import geopandas as gpd
 import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib.colors import LinearSegmentedColormap
+import os
+from pathlib import Path
 
+BASE_DIR = Path(__file__).resolve().parents[1]  # project root
+shp_path = BASE_DIR / "/Users/ez_us/Documents/GitHub/data_projects/retirement-age-DEI/07_visuals/ne_110m_admin_0_countries/ne_110m_admin_0_countries.shp"
+
+
+print("CWD:", os.getcwd())
 # -----------------------------
 # 1. Data
 # -----------------------------
@@ -26,11 +33,9 @@ data = {
 df = pd.DataFrame(data)
 
 # -----------------------------
-# 2. World map
+# 2. Load Natural Earth map (FIXED)
 # -----------------------------
-world = gpd.read_file(
-    "data/maps/ne_110m_admin_0_countries/ne_110m_admin_0_countries.shp"
-)
+world = gpd.read_file(shp_path)
 
 # Fix naming mismatches
 world["name"] = world["name"].replace({
@@ -41,7 +46,7 @@ world["name"] = world["name"].replace({
 gdf = world.merge(df, left_on="name", right_on="country", how="left")
 
 # -----------------------------
-# 3. Theme color map (orange scale)
+# 3. Theme color map
 # -----------------------------
 theme_cmap = LinearSegmentedColormap.from_list(
     "theme_orange",
@@ -51,7 +56,7 @@ theme_cmap = LinearSegmentedColormap.from_list(
 # -----------------------------
 # 4. Plot
 # -----------------------------
-fig, ax = plt.subplots(1, 1, figsize=(12, 10))
+fig, ax = plt.subplots(figsize=(12, 10))
 
 gdf.plot(
     column="duration",
@@ -59,10 +64,7 @@ gdf.plot(
     linewidth=0.6,
     edgecolor="#1F2933",
     ax=ax,
-    missing_kwds={
-        "color": "#E5E7EB",
-        "label": "No data"
-    }
+    missing_kwds={"color": "#E5E7EB"}
 )
 
 ax.set_title(
@@ -77,10 +79,7 @@ ax.axis("off")
 # Colorbar
 sm = plt.cm.ScalarMappable(
     cmap=theme_cmap,
-    norm=plt.Normalize(
-        vmin=df["duration"].min(),
-        vmax=df["duration"].max()
-    )
+    norm=plt.Normalize(df["duration"].min(), df["duration"].max())
 )
 sm._A = []
 
